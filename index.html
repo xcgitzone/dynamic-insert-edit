@@ -1,0 +1,21 @@
+<template>
+    <div class="edit-modal">
+        <div class="modal-oprate">
+            <div class="edit-title">
+                <div class="edit-area" contenteditable="true" ref="edit" @input="inputEvent" @blur="getCursorPos" @keyup="getCursorPos">{{editValueData}}</div>
+                <span class="font-rate">11/23</span>
+            </div>
+            <veui-button class="commit-btn" ui="primary tiny">确认</veui-button>
+            <veui-button class="cancel-btn" ui="tiny">取消</veui-button>
+        </div>
+        <div class="words-package">
+            <span class="words-label">插入词包</span>
+            <span class="prompt words-label">：</span>
+            <span class="package-item" v-for="item in packages" @click="addWords('#{' + item.label + '}')">
+                <span class="package-item-icon"></span>
+            <span class="package-item-font">{{item.label}}</span>
+            </span>
+            <span class="all-words-package words-label">全部词包</span>
+        </div>
+    </div>
+</template>
