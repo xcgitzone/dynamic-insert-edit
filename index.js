@@ -50,6 +50,7 @@ export default {
             this.$refs.edit.focus();
             let sel, range, node, lastNode;
             if (window.getSelection) {
+                // Chrome Opero IE > 9
                 sel = window.getSelection();
                 if (sel.getRangeAt && sel.rangeCount) {
                     range = sel.getRangeAt(0);
@@ -69,6 +70,9 @@ export default {
                         sel.addRange(range);
                     }
                 }
+            } else if (document.selection && document.selection.type != "Control") {
+                // IE < 9
+                document.selection.createRange().pasteHTML(html);
             }
         }
     }
