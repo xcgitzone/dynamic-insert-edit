@@ -1,4 +1,5 @@
 import template from './index.html';
+import './index.less';
 import { Button } from 'veui';
 const wordPackage = [
     {
