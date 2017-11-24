@@ -1,6 +1,21 @@
 import template from './index.html';
+import { Button } from 'veui';
+const wordPackage = [
+    {
+        label: '地域'
+    },
+    {
+        label: '日期'
+    },
+    {
+        label: '旅游'
+    }
+];
 export default {
     template,
+    components: {
+        'veui-button': Button
+    },
     props: {
         editValue: {
             type: String,
@@ -14,10 +29,13 @@ export default {
             // 监控标题编辑数据
             monitorData: '',
             // 跟踪光标最后的位置
-            trackCursor: 0
+            trackCursor: 0,
+            // 词包mock数据
+            packages: wordPackage
         };
     },
     methods: {
+        // 监控输入数据
         inputEvent(param) {
             this.monitorData = this.$refs.edit.innerHTML;
         },
